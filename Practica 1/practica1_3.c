@@ -28,7 +28,7 @@ int main()
 	}
 	printf("\n");
 
-	for(int i = 0; i < n/2; i++) {//porque cada intercambio movera dos elementos a su lugar.
+	for(int i = 0; i < n/2; i++) {//Por cada intercambio movera dos elementos a su lugar
         int temp = a[i];//temp sera una variable que nos permite guardar temporalmente nuestros datos al invertir el arreglo
         a[i] = a[n - 1 - i];//Reemplaza el elemento en i
         a[n - 1 - i] = temp;
@@ -59,6 +59,5 @@ int main()
 	printf("Promedio = %.2f\n", prom);
 	printf("El minimo elemento = %d esta en la posicion %d\n", min, ps_Min);
 	printf("El maximo elemento = %d esta en la posicion %d\n", max, ps_Max);
-
 	return 0;
 }
