@@ -1,47 +1,156 @@
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
+#define Tam 10
+#define Num_Direc 2
 
-#define TAM 2       // cuántas películas guardaremos
-#define NUM_DIR 2   // cuántos directores por película
-
-struct pelicula {
-    char nombre[20];
-    char genero[20];
-    int  anio;
-    int  numDirectores;
-    char directores[NUM_DIR][20];
+struct pelicula
+{
+	char nombre [45];
+	char genero [30];
+	int year;
+	int numDirectores;
+	char directors[Num_Direc][40];
 };
 
-int main(void) {
-    struct pelicula videoteca[TAM];
+int main(void)
+{
+	struct  pelicula videoteca[Tam];
+	int n=0,i,j;
+ 	printf("¿Cuántas peliculas deseas ingresar?(En un maximo de %d)\n",Tam);
+ 	scanf("%d",&n);
+		while(n <1|| n>Tam)
+		{
+			printf("Numero invalido.Ingrese entre 1-10 peliculas \n");
+			scanf("%d",&n);
+		}
+		 for(i=0; i<n ;i++)
+		 {
+		 	printf("\n ---Pelicula %d ---\n",i+1);
+		 	printf("Nombre: ");
+        	scanf(" %[^\n]", videoteca[i].nombre);   //%[^\n] lee y almacena todos los caracteres hasta encontrar un carácter de nueva línea
+        	printf("Genero: ");
+        	scanf(" %[^\n]", videoteca[i].genero); 
+		 
+		 do {
+            printf("Año : ");
+            scanf("%d", &videoteca[i].year);
+        } while (videoteca[i].year <= 0);
+        
+        do {
+            printf("Número de directores:");
+            scanf("%d", &videoteca[i].numDirectores);
+        } while (videoteca[i].numDirectores < 1 || videoteca[i].numDirectores > Num_Direc);
+        
+        for (j = 0; j < videoteca[i].numDirectores; j++)
+         {
+            printf("Director %d: ", j+1);
+            scanf(" %[^\n]", videoteca[i].directors[j]);  // acepta espacios
+   
+        	}
+        }
 
-    // Película 1
-    strcpy(videoteca[0].nombre, "Matrix");
-    strcpy(videoteca[0].genero, "CienciaFiccion");
-    videoteca[0].anio = 1999;
-    videoteca[0].numDirectores = 2;
-    strcpy(videoteca[0].directores[0], "Lana");
-    strcpy(videoteca[0].directores[1], "Lilly");
-
-    // Película 2
-    strcpy(videoteca[1].nombre, "Inception");
-    strcpy(videoteca[1].genero, "Accion");
-    videoteca[1].anio = 2010;
-    videoteca[1].numDirectores = 1;
-    strcpy(videoteca[1].directores[0], "Nolan");
-
-    // Mostrar (de la última a la primera: idea de “pila”/stack)
-    printf("####### Contenido de la videoteca #######\n");
-    for (int i = TAM - 1; i >= 0; i--) {
+ printf("\n-- Bienvenido a la videoteca --\n");
+    for (i = n-1; i >= 0; i--)
+     {
         printf("Pelicula: %s\n", videoteca[i].nombre);
         printf("Genero: %s\n", videoteca[i].genero);
-        printf("Anio: %d\n", videoteca[i].anio);
+        printf("Age: %d\n", videoteca[i].year);
         printf("Directores (%d):\n", videoteca[i].numDirectores);
-        for (int j = 0; j < videoteca[i].numDirectores; j++) {
-            printf("  - %s\n", videoteca[i].directores[j]);
+        for (j = 0; j < videoteca[i].numDirectores; j++) {
+            printf("  - %s\n", videoteca[i].directors[j]);
         }
         printf("\n");
     }
 
+ int opcion;
+    char texto[40];
+    int yearBuscado;
+    int encontrada;
+    
+    do {
+        printf("\n===== MENU =====\n");
+        printf("1. Buscar por nombre\n");
+        printf("2. Buscar por año\n");
+        printf("3. Buscar por género\n");
+        printf("4. Buscar por director\n");
+        printf("5. Salir\n");
+
+        printf("Opción: ");
+        scanf("%d", &opcion);
+        
+        switch(opcion)
+         {
+            case 1:
+                printf("Introduce el nombre: ");
+                scanf(" %[^\n]", texto);
+                encontrada = 0;
+                for (i = 0; i < n; i++) {
+                    if (strcasecmp(videoteca[i].nombre, texto) == 0) {
+                        printf("Encontrada: %s (%d) - %s\n",
+                               videoteca[i].nombre, videoteca[i].year, videoteca[i].genero);
+                        encontrada = 1;
+                    }
+                }
+                if (encontrada == 0)
+                    printf("No se encontró la película.\n");
+                break;
+                
+            case 2:
+                printf("Introduce el año: ");
+                scanf("%d", &yearBuscado);
+                encontrada = 0;
+                for (i = 0; i < n; i++) {
+                    if (videoteca[i].year == yearBuscado) {
+                        printf("Encontrada: %s (%s)\n",
+                               videoteca[i].nombre, videoteca[i].genero);
+                        encontrada = 1;
+                    }
+                }
+                if (encontrada == 0)
+                    printf("No se encontraron películas en ese año.\n");
+                break;
+                
+            case 3:
+                printf("Introduce el género: ");
+                scanf(" %[^\n]", texto);
+                encontrada = 0;
+                for (i = 0; i < n; i++) {
+                    if (strcasecmp(videoteca[i].genero, texto) == 0) {
+                        printf("Encontrada: %s (%d)\n",
+                               videoteca[i].nombre, videoteca[i].year);
+                        encontrada = 1;
+                    }
+                }
+                if (encontrada == 0)
+                    printf("No se encontraron películas de ese género.\n");
+                break;
+                
+            case 4:
+                printf("Introduce el nombre del director: \n");
+                scanf(" %[^\n]", texto);
+                encontrada = 0;
+                for (i = 0; i < n; i++) {
+                    for (j = 0; j < videoteca[i].numDirectores; j++) {
+                        if (strcasecmp(videoteca[i].directors[j], texto) == 0) {
+                            printf("Encontrada: %s (%d) - %s\n",
+                                   videoteca[i].nombre, videoteca[i].year, videoteca[i].genero);
+                            encontrada = 1;
+                        }
+                    }
+                }
+                if (encontrada == 0)
+                    printf("No se encontraron películas de ese director.\n");
+                break;
+                
+            case 5:
+                printf("Saliendo...\n");
+                break;
+                
+            default:
+                printf("Opción inválida.\n");
+        }
+        
+    } while (opcion != 5);
+    
     return 0;
 }
