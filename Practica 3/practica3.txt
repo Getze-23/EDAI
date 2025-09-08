@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+#define TAM 2       // cuántas películas guardaremos
+#define NUM_DIR 2   // cuántos directores por película
+
+struct pelicula {
+    char nombre[20];
+    char genero[20];
+    int  anio;
+    int  numDirectores;
+    char directores[NUM_DIR][20];
+};
+
+int main(void) {
+    struct pelicula videoteca[TAM];
+
+    // Película 1
+    strcpy(videoteca[0].nombre, "Matrix");
+    strcpy(videoteca[0].genero, "CienciaFiccion");
+    videoteca[0].anio = 1999;
+    videoteca[0].numDirectores = 2;
+    strcpy(videoteca[0].directores[0], "Lana");
+    strcpy(videoteca[0].directores[1], "Lilly");
+
+    // Película 2
+    strcpy(videoteca[1].nombre, "Inception");
+    strcpy(videoteca[1].genero, "Accion");
+    videoteca[1].anio = 2010;
+    videoteca[1].numDirectores = 1;
+    strcpy(videoteca[1].directores[0], "Nolan");
+
+    // Mostrar (de la última a la primera: idea de “pila”/stack)
+    printf("####### Contenido de la videoteca #######\n");
+    for (int i = TAM - 1; i >= 0; i--) {
+        printf("Pelicula: %s\n", videoteca[i].nombre);
+        printf("Genero: %s\n", videoteca[i].genero);
+        printf("Anio: %d\n", videoteca[i].anio);
+        printf("Directores (%d):\n", videoteca[i].numDirectores);
+        for (int j = 0; j < videoteca[i].numDirectores; j++) {
+            printf("  - %s\n", videoteca[i].directores[j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
