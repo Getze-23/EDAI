@@ -1,0 +1,17 @@
+ Preguntas de la actividad
+
+----¿Qué diferencia observaron entre malloc y calloc?
+
+malloc nos deja valores basura en  la memoria.
+
+calloc inicializa los valores en 0.
+
+----¿Qué sucede con realloc si se pide más grande o más pequeño?
+
+Más grande: se reservan posiciones adicionales (no inicializadas).
+
+Más pequeño: se recorta el arreglo, perdiendo los valores sobrantes.
+
+----¿Qué pasa si olvidamos llamar a free?
+
+La memoria dinámica quedara  ocupada hasta que termine el programa si se repite muchas veces, se produce una fuga de memoria (memory leak).
