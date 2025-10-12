@@ -1,0 +1,26 @@
+Preguntas (A)
+
+¿Por qué en la cola circular no se desperdician posiciones como en la cola lineal?
+Porque los índices se reutilizan mediante la operación módulo (% MAX), ya que
+cuando llega al final llega al límite del arreglo y vuelve al inicio. 
+
+¿Qué pasa cuando el índice final llega al final del arreglo?
+Se reinicia al índice 0 usando (final + 1) % MAX, lo que cierra el ciclo de la cola
+
+¿Qué sucede si intentas encolar cuando la cola está llena?
+No se puede agregar otro elemento; se muestra un mensaje de “cola llena” 
+
+Preguntas (B)
+¿Qué diferencia tiene el deque frente a la cola circular normal?
+El deque permite insertar y eliminar elementos tanto por el frente como por el final,
+mientras que la cola circular solo lo permite en un sentido (inserta por el final y elimina por el frente)
+
+¿Qué operaciones permiten simular tanto FIFO como LIFO?
+
+FIFO (cola): insert_rear() y delete_front()
+LIFO (pila): insert_front() y delete_front()
+
+¿Qué aplicaciones prácticas tiene deque?
+Se usa en  gestión de tareas en sistemas operativos o en un programa que necesite almacenar acciones del usuario,
+ en implementaciones de LRU cache (Least Recently Used),permite añadir y quitar nodos de ambos extremos de manera eficiente,
+útil en exploraciones de grafos o laberintos
