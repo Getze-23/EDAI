@@ -1,12 +1,12 @@
 1. ¿Qué diferencias notaron entre el orden de salida de la pila y de la cola?
-En la pila, el último elemento en entrar es el primero en salir (LIFO, Last In, First Out)
-mientras que en la cola, el primer elemento en entrar es el primero en salir (FIFO, First In, First Out)
+En la pila el último elemento en entrar es el primero en salir es de tipo LIFO (Last In-First Out)
+mientras que en la cola el primer elemento en entrar es el primero en salir FIFO (First In-First Out)
 o sea que  en la pila los datos se procesan en orden inverso, y en la cola se procesan en el mismo orden en que llegaron.
 
 2. ¿Qué sucede si intentan hacer pop en una pila vacía o dequeue en una cola vacía?
-El programa mostrará un mensaje de error indicando que la estructura está vacía y no permite extraer más elementos
-No se realiza ninguna operación adicional
+El programa mostrará un mensaje de error el cual nos indica  que la estructura está vacía y no permite extraer más elementos
+
 
 3. ¿Qué sucede si intentan insertar más elementos que la capacidad máxima?
 El programa muestra un mensaje de error indicando que la pila o la cola están llenas y
-no se puede insertar más información hasta que se libere espacio.
+no se puede insertar más elementos hasta que se libere  espacio.
