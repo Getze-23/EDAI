@@ -18,4 +18,4 @@ Permite recorrer los elementos de forma continua sin que  reiniciemos desde el p
 Si no se controla correctamente el programa nunca detectara cuando volver al inicio
 
 ¿Qué estructuras o programas del mundo real se basan en listas circulares?
-
+Se utilizan para el algoritmo de programación round-robin, donde cada proceso en espera recibe una pequeña porción de tiempo de CPU
