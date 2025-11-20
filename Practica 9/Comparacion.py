@@ -1,0 +1,5 @@
+print(7 < 5)
+print(7 > 5 )
+print((11 * 3)+2 == 36 - 1)
+print((11 * 3) + 2 >=36 )
+print("curso" != "CuRsO")
