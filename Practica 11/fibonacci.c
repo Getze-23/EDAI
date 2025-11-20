@@ -24,7 +24,7 @@ int main() {
     int posiciones[] = {7, 21, 40, 71, 94};
     int total = 5;
 
-    printf("Valores de la secuencia de Fibonacci:\n\n");
+    printf("Valores de la serie Fibonacci:\n\n");
 
     for (int i = 0; i < total; i++) {
         int pos = posiciones[i];
