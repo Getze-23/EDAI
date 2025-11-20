@@ -1,0 +1,5 @@
+tupla_diasDelMes=(31,28,31,30,31,30,31,31,30,31,30,31)
+print(tupla_diasDelMEs)
+print(tupla_diasDelMes[0])
+print(tupla_diasDelMes[3])
+print(upla_diasDelMes[1])
