@@ -1,4 +1,4 @@
-lista_numeros=[['cero',0],['uno',1,'UNO'],['dos',2],['tres',3],['cuatro',4],['X',5]
+lista_numeros=[['cero',0],['uno',1,'UNO'],['dos',2],['tres',3],['cuatro',4],['X',5]]
 print(lista_numeros)
 print(lista_numeros[0])
 print(lista_numeros[1])    
