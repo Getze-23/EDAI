@@ -13,6 +13,5 @@ def fibonacci_top_down(n, memo=None):
     return memo[n]
 
 
-# Ejemplo:
 print("Top-down:", fibonacci_top_down(1))
 
